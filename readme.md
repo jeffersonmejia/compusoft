@@ -58,9 +58,16 @@ Not available
 
 ---
 
-**Author**
+**Authors**
 
-> Jefferson Mejía 🍉
+- [Jefferson Mejía](https://github.com/jeffersonmejia/), Eng. Systems Student
+
+- [Ernesto Serrano](https://github.com/ernesthuqui/), Eng. Systems Student
+
+**About authors**
+
+- [Universidad Técnica de Manabí](https://www.utm.edu.ec/)
+- Semester 3
 
 **Icons**
 
