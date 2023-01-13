@@ -2,10 +2,17 @@
 	--main-bg: rgb(0, 183, 255);
 	--main-fg: hsl(0, 0%, 40%);
 	--header-fg: white;
+	--navbar-bg: white;
 	--navbar-height: 60px;
 	--gray-border: 1px solid hsl(0, 0%, 90%);
 	--header-bg: black;
 	--main-highlight: rgb(3, 164, 192);
+	--border-radius: 12px;
+	--height-btn: 48px;
+	--btn-bg: hsl(197, 100%, 50%);
+	--btn-fg: white;
+	--btn-hover: hsl(197, 100%, 60%);
+	--transparent-shadow: 1px 1px 8px hsl(0, 0%, 40%);
 }
 
 * {
@@ -19,6 +26,20 @@ img {
 button {
 	border: none;
 }
+.btn {
+	width: 100%;
+	border-radius: var(--border-radius);
+	height: var(--height-btn);
+	background-color: var(--btn-bg);
+	color: var(--btn-fg);
+	cursor: pointer;
+	transition: background-color 0.3s ease-in-out;
+}
+@media (hover: hover) {
+	.btn:hover {
+		background-color: var(--btn-hover);
+	}
+}
 body {
 	font-family: "nunito", sans-serif;
 	margin-top: calc(var(--navbar-height));
@@ -26,11 +47,15 @@ body {
 .navbar {
 	position: fixed;
 	top: 0;
+	left: 0;
+	right: 0;
 	height: var(--navbar-height);
-	width: 100%;
 	margin-top: var(--navbar-height);
 	margin: 0;
 	padding: 12px;
+	z-index: 998;
+	background-color: var(--navbar-bg);
+	box-shadow: var(--transparent-shadow);
 }
 .navbar-list {
 	display: none;
@@ -45,10 +70,11 @@ header figure {
 	height: auto;
 }
 header img {
-	height: 200px;
+	height: 100vh;
 	object-fit: cover;
 	object-fit: right center;
 	opacity: 0.7;
+	z-index: 997;
 }
 header figcaption {
 	position: absolute;
@@ -56,8 +82,11 @@ header figcaption {
 	left: 50%;
 	transform: translate(-50%, -50%);
 	color: var(--header-fg);
-	font-size: 1.5rem;
+	font-size: 1.2rem;
 	text-align: center;
+}
+header .btn {
+	margin: 12px 0;
 }
 footer {
 	text-align: center;
