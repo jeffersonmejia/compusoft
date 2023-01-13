@@ -2,20 +2,20 @@
 	--main-bg: hsl(69, 100%, 50%);
 	--main-fg: hsl(0, 0%, 40%);
 	--header-fg: white;
-	--navbar-bg: hsl(0, 0%, 0%);
+	--navbar-bg: linear-gradient(62deg, #8ec5fc 0%, #e0c3fc 100%);
 	--navbar-fg: white;
 	--navbar-height: 64px;
-	--navbar-hover: hsl(0, 0%, 12%);
+	--navbar-hover: #e0c3fc;
 	--header-bg: black;
 	--border-radius: 12px;
 	--height-btn: 48px;
-	--btn-bg: white;
-	--btn-fg: black;
-	--btn-hover: hsl(100, 100%, 60%);
+	--btn-bg: linear-gradient(62deg, #8ec5fc 0%, #e0c3fc 100%);
+	--btn-fg: white;
+	--btn-hover: #8ec5fc;
 	--gray-btn-bg: hsl(0, 0%, 90%);
 	--gray-btn-fg: hsl(0, 0%, 32%);
 	--gray-btn-hover: hsl(0, 0%, 94%);
-	--transparent-shadow: 1px 1px 8px hsl(0, 0%, 40%);
+	--transparent-shadow: 1px 1px 8px hsl(0, 0%, 20%);
 }
 
 * {
@@ -33,7 +33,7 @@ button {
 	width: 100%;
 	border-radius: var(--border-radius);
 	height: var(--height-btn);
-	background-color: var(--btn-bg);
+	background-image: var(--btn-bg);
 	color: var(--btn-fg);
 	cursor: pointer;
 	transition: transform 0.3s ease-in-out;
@@ -44,7 +44,7 @@ button {
 	position: fixed;
 	bottom: 4vh;
 	right: 4vh;
-	background-color: var(--btn-bg);
+	background-image: var(--btn-bg);
 	padding: 8px;
 	border-radius: 50%;
 	color: var(--btn-fg);
@@ -61,6 +61,8 @@ body {
 	font-family: "nunito", sans-serif;
 }
 .navbar {
+	background-image: var(--navbar-bg);
+	color: var(--navbar-fg);
 	display: flex;
 	align-items: center;
 	position: fixed;
@@ -72,8 +74,6 @@ body {
 	margin: 0;
 	padding: 12px;
 	z-index: 998;
-	background-color: var(--navbar-bg);
-	color: var(--navbar-fg);
 }
 .navbar-list {
 	display: none;
@@ -126,7 +126,7 @@ body {
 }
 @media (hover: hover) {
 	.dark-mode:hover {
-		background-color: var(--navbar-hover);
+		background-color: var(--btn-hover);
 	}
 }
 header {
@@ -139,7 +139,7 @@ header img {
 	height: 100vh;
 	object-fit: cover;
 	object-fit: right center;
-	opacity: 0.7;
+	opacity: 0.6;
 	z-index: 997;
 }
 header figcaption {
@@ -153,6 +153,7 @@ header figcaption {
 }
 header .btn {
 	margin: 12px 0;
+	box-shadow: var(--transparent-shadow);
 }
 footer {
 	text-align: center;
