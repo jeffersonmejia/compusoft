@@ -47,7 +47,7 @@ button {
 	bottom: 4vh;
 	right: 4vh;
 	background-image: var(--btn-bg);
-	padding: 8px;
+	padding: 12px;
 	border-radius: 50%;
 	color: var(--btn-fg);
 	cursor: pointer;
