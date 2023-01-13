@@ -142,6 +142,7 @@ header img {
 	object-fit: right center;
 	opacity: 0.6;
 	z-index: 997;
+	user-select: none;
 }
 header figcaption {
 	width: 100%;
