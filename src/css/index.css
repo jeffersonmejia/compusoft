@@ -9,3 +9,6 @@ img {
 button {
 	border: none;
 }
+body {
+	font-family: "nunito", sans-serif;
+}
