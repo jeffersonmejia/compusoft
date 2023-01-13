@@ -16,6 +16,8 @@
 	--gray-btn-fg: hsl(0, 0%, 32%);
 	--gray-btn-hover: hsl(0, 0%, 94%);
 	--transparent-shadow: 1px 1px 8px hsl(0, 0%, 20%);
+
+	--btn-dark-hover: rgba(0, 0, 0, 0.6);
 }
 
 * {
@@ -61,7 +63,6 @@ body {
 	font-family: "nunito", sans-serif;
 }
 .navbar {
-	background-image: var(--navbar-bg);
 	color: var(--navbar-fg);
 	display: flex;
 	align-items: center;
@@ -100,8 +101,8 @@ body {
 	justify-content: center;
 }
 @media (hover: hover) {
-	.navbar-list li:hover {
-		background-color: var(--navbar-hover);
+	.navbar-list a:hover {
+		text-decoration: underline;
 	}
 }
 .logo {
@@ -126,7 +127,7 @@ body {
 }
 @media (hover: hover) {
 	.dark-mode:hover {
-		background-color: var(--btn-hover);
+		background-color: var(--btn-dark-hover);
 	}
 }
 header {
