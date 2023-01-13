@@ -144,6 +144,8 @@ header img {
 	z-index: 997;
 }
 header figcaption {
+	width: 100%;
+	max-width: 300px;
 	position: absolute;
 	top: 50%;
 	left: 50%;
