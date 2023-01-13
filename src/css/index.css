@@ -3,7 +3,7 @@
 	--main-fg: hsl(0, 0%, 40%);
 	--header-fg: white;
 	--navbar-bg: white;
-	--navbar-height: 60px;
+	--navbar-height: 64px;
 	--gray-border: 1px solid hsl(0, 0%, 90%);
 	--header-bg: black;
 	--main-highlight: rgb(3, 164, 192);
@@ -12,6 +12,9 @@
 	--btn-bg: hsl(197, 100%, 50%);
 	--btn-fg: white;
 	--btn-hover: hsl(197, 100%, 60%);
+	--gray-btn-bg: hsl(0, 0%, 90%);
+	--gray-btn-fg: hsl(0, 0%, 32%);
+	--gray-btn-hover: hsl(0, 0%, 94%);
 	--transparent-shadow: 1px 1px 8px hsl(0, 0%, 40%);
 }
 
@@ -35,8 +38,19 @@ button {
 	cursor: pointer;
 	transition: background-color 0.3s ease-in-out;
 }
+.burger {
+	position: fixed;
+	bottom: 4vh;
+	right: 4vh;
+	background-color: var(--btn-bg);
+	padding: 8px;
+	border-radius: 50%;
+	color: var(--btn-fg);
+	cursor: pointer;
+}
 @media (hover: hover) {
-	.btn:hover {
+	.btn:hover,
+	.burger:hover {
 		background-color: var(--btn-hover);
 	}
 }
@@ -45,6 +59,8 @@ body {
 	margin-top: calc(var(--navbar-height));
 }
 .navbar {
+	display: flex;
+	align-items: center;
 	position: fixed;
 	top: 0;
 	left: 0;
@@ -59,18 +75,56 @@ body {
 }
 .navbar-list {
 	display: none;
+	list-style: none;
+	color: var(--main-fg);
+	height: 100%;
+}
+.navbar-list li {
+	cursor: pointer;
+	height: 100%;
+}
+.navbar-list li:last-child {
+	margin-right: 20px;
+}
+.navbar-list a {
+	width: auto;
+	text-decoration: none;
+	color: var(--main-fg);
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+@media (hover: hover) {
+	.navbar-list li:hover {
+		background-color: var(--gray-btn-hover);
+	}
 }
 .logo {
 	font-size: 28px;
 	color: var(--main-bg);
+	flex-grow: 1;
 }
-header figure {
-	position: relative;
+.dark-mode {
+	cursor: pointer;
+	background-color: var(--gray-btn-bg);
+	color: var(--gray-btn-fg);
+	padding: 8px;
+	border-radius: 50%;
+	transition: background-color 0.3s ease-in-out;
+}
+@media (hover: hover) {
+	.dark-mode:hover {
+		background-color: var(--gray-btn-hover);
+	}
+}
+header {
 	background-color: var(--header-bg);
-	height: auto;
+	position: relative;
+	height: 80vh;
 }
 header img {
-	height: 100vh;
+	height: 80vh;
 	object-fit: cover;
 	object-fit: right center;
 	opacity: 0.7;
@@ -96,4 +150,23 @@ footer {
 footer a {
 	text-decoration: none;
 	color: var(--main-highlight);
+}
+@media screen and (min-width: 700px) {
+	.burger {
+		display: none;
+	}
+	.navbar {
+		padding: 0 60px;
+		align-items: center;
+	}
+	.logo {
+		flex-grow: 1;
+	}
+	.navbar-list {
+		width: 40%;
+		display: flex;
+	}
+	.navbar-list li {
+		width: 100%;
+	}
 }
