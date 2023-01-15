@@ -22,7 +22,7 @@
 
 mobile, tablet & desktop here!
 
-<!-- [![main.png](https://i.postimg.cc/tCGKM1HS/main.png)](https://postimg.cc/mhVpcgkC) -->
+[![main-1.png](https://i.postimg.cc/3rjvBxtT/main-1.png)](https://postimg.cc/RqFhC4rs)
 
 ### **Features**
 
