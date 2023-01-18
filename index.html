@@ -32,15 +32,7 @@
 				<i class="ti ti-shopping-bag logo-icon"></i>
 				<h2>Mobile tienda</h2>
 			</div>
-			<ul class="navbar-list">
-				<li>
-					<a href="">Inicio</a>
-				</li>
-				<li>
-					<a href="">E-commerce</a>
-				</li>
-				<li><a href="">Sobre nosotros</a></li>
-			</ul>
+			<ul class="navbar-list"></ul>
 			<span class="material-symbols-outlined dark-mode"> dark_mode </span>
 		</nav>
 		<header>
@@ -53,16 +45,17 @@
 				</figcaption>
 			</figure>
 		</header>
-		<!-- <footer>
-			<small
-				>Desarrollado por
-				<a href="https://github.com/jeffersonmejia" target="_blank">Jefferson Mejía</a> &
-				<a href="https://github.com/ernesthuqui" target="_blank"
-					>Ernesto Serrano</a
-				></small
-			>
-		</footer> -->
 		<span class="material-symbols-outlined burger"> menu </span>
+		<ul class="burger-list opacity-hidden"></ul>
+		<template id="navbar-template">
+			<li>
+				<a href="">Inicio</a>
+			</li>
+			<li>
+				<a href="">E-commerce</a>
+			</li>
+			<li><a href="">Sobre nosotros</a></li>
+		</template>
 		<script src="./src/js/index.js"></script>
 	</body>
 </html>
