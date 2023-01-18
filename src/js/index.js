@@ -8,13 +8,19 @@ const d = document,
 	$header = d.querySelectorAll(".header *"),
 	$enterprise = d.querySelector(".enterprise-container"),
 	$footer = d.querySelector("footer"),
-	$body = d.querySelector("body");
+	$body = d.querySelector("body"),
+	$modalLoader = d.querySelector(".modal-loader");
 
 d.addEventListener("DOMContentLoaded", (e) => {
 	let $navbarClone = $navbar.cloneNode(true);
 	$navbarList.appendChild($navbar);
 	$burgerList.appendChild($navbarClone);
-	$headerImg.classList.add("img-translated");
+	setTimeout(() => {
+		$modalLoader.classList.add("opacity-hidden");
+	}, 1000);
+	setTimeout(() => {
+		$headerImg.classList.add("img-translated");
+	}, 1000);
 });
 d.addEventListener("click", (e) => {
 	if (e.target.matches(".burger")) {
