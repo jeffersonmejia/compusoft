@@ -7,12 +7,13 @@
 	--navbar-height: 64px;
 	--navbar-hover: #e0c3fc;
 	--header-bg: black;
-	--modal-bg: hsl(271, 90%, 95%);
+	--modal-bg: hsl(271, 100%, 100%);
 	--modal-content-bg: hsl(271, 90%, 100%);
 	--modal-content-fg: hsl(271, 90%, 70%);
 	--modal-content-hover: hsl(271, 90%, 90%);
 	--border-radius: 12px;
 	--border-light: 1px solid rgb(220, 220, 220);
+	--input-hover: rgb(245, 245, 245);
 	--height-btn: 48px;
 	--btn-bg: linear-gradient(62deg, #8ec5fc 0%, #e0c3fc 100%);
 	--btn-fg: white;
@@ -36,6 +37,26 @@ img {
 button {
 	border: none;
 }
+input,
+textarea {
+	border: var(--border-light);
+	border-radius: var(--border-radius);
+	padding: 16px;
+	cursor: pointer;
+	outline: none;
+}
+@media (hover: hover) {
+	input:hover,
+	textarea:hover {
+		background-color: var(--input-hover);
+	}
+}
+textarea {
+	resize: none;
+}
+input {
+	height: var(--height-btn);
+}
 .btn {
 	width: 100%;
 	border-radius: var(--border-radius);
@@ -43,7 +64,6 @@ button {
 	background-image: var(--btn-bg);
 	color: var(--btn-fg);
 	cursor: pointer;
-	transition: transform 0.3s ease-in-out;
 	font-weight: bold;
 	font-size: 16px;
 }
@@ -59,8 +79,11 @@ button {
 	transition: transform 0.3s ease-in-out;
 	z-index: 999;
 }
+header .btn {
+	transition: transform 0.3s ease-in-out;
+}
 @media (hover: hover) {
-	.btn:hover,
+	header .btn:hover,
 	.burger:hover {
 		transform: translateY(-15%);
 	}
@@ -149,6 +172,46 @@ body {
 .burger-list a {
 	text-decoration: none;
 	color: var(--modal-content-fg);
+}
+.contact-us-container {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background-color: var(--modal-bg);
+	z-index: 999;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: var(--main-fg);
+}
+.contact-us-container form {
+	width: 80%;
+	display: flex;
+	justify-content: center;
+}
+.contact-us-container fieldset {
+	width: 100%;
+	max-width: 400px;
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+	border: none;
+}
+.contact-us-container .btn-back {
+	width: fit-content;
+	margin: auto;
+	padding: 12px;
+	cursor: pointer;
+}
+@media (hover: hover) {
+	.contact-us-container .btn-back:hover {
+		color: rgb(48, 60, 255);
+	}
+}
+.contact-us-container input:nth-child(2) {
+	margin-top: 16px;
 }
 .logo {
 	flex-grow: 1;
