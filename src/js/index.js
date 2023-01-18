@@ -25,4 +25,7 @@ d.addEventListener("click", (e) => {
 		$burgerList.classList.add("opacity-hidden");
 		$contact.classList.add("opacity-hidden");
 	}
+	if (e.target.matches(".link-home")) {
+		$burgerList.classList.add("opacity-hidden");
+	}
 });

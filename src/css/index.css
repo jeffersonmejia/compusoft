@@ -155,24 +155,29 @@ body {
 	text-align: center;
 	list-style-type: none;
 	background-color: var(--modal-content-bg);
-	padding: 12px;
 	transition-property: padding, background-color;
-	transition: 0.3s ease-in-out;
 	cursor: pointer;
 }
 @media (hover: hover) {
-	.burger-list li:hover {
-		padding: 16px;
+	.burger-list li a:hover {
 		background-color: var(--modal-content-hover);
 		border: none;
+		width: 100%;
+		padding: 20px;
 	}
 }
 .burger-list li:not(:last-child) {
 	border-bottom: 1px solid hsl(271, 90%, 90%);
 }
 .burger-list a {
+	display: flex;
+	flex-direction: column;
+	padding: 12px;
+	width: 100%;
+	height: 100%;
 	text-decoration: none;
 	color: var(--modal-content-fg);
+	transition: 0.3s ease-in-out;
 }
 .contact-us-container {
 	position: fixed;
@@ -284,6 +289,11 @@ header .btn {
 header figure {
 	display: grid;
 	grid-template-columns: repeat(2, 1fr);
+}
+.enterprise-container {
+	position: absolute;
+	top: 0;
+	margin-top: var(--navbar-height);
 }
 footer {
 	text-align: center;
