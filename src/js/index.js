@@ -3,7 +3,10 @@ const d = document,
 	$burgerList = d.querySelector(".burger-list"),
 	$navbar = d.getElementById("navbar-template").content,
 	$contact = d.querySelector(".contact-us-container"),
-	$headerImg = d.querySelector("header img");
+	$headerImg = d.querySelector(".header-img"),
+	$headerBg = d.querySelector(".header"),
+	$header = d.querySelectorAll(".header *"),
+	$enterprise = d.querySelector(".enterprise-container");
 
 d.addEventListener("DOMContentLoaded", (e) => {
 	let $navbarClone = $navbar.cloneNode(true);
@@ -27,5 +30,20 @@ d.addEventListener("click", (e) => {
 	}
 	if (e.target.matches(".link-home")) {
 		$burgerList.classList.add("opacity-hidden");
+
+		$navbarList.parentElement.classList.remove("navbar-reading");
+		$headerBg.classList.remove("header-light");
+		$enterprise.classList.add("opacity-hidden");
+		$burgerList.classList.remove("opacity-hidden");
+		$header[0].classList.remove("opacity-hidden");
+		$header[1].classList.remove("opacity-hidden");
+	}
+	if (e.target.matches(".link-enterprises")) {
+		$navbarList.parentElement.classList.add("navbar-reading");
+		$headerBg.classList.add("header-light");
+		$enterprise.classList.remove("opacity-hidden");
+		$burgerList.classList.add("opacity-hidden");
+		$header[0].classList.add("opacity-hidden");
+		$header[1].classList.add("opacity-hidden");
 	}
 });

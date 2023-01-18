@@ -290,11 +290,27 @@ header figure {
 	display: grid;
 	grid-template-columns: repeat(2, 1fr);
 }
+.navbar-reading {
+	background-color: white;
+	color: black;
+}
+.navbar-reading a {
+	color: black;
+}
+.header-light {
+	background-image: none;
+	background-color: white;
+}
 .enterprise-container {
+	width: 100%;
 	position: absolute;
 	top: 0;
 	margin-top: var(--navbar-height);
+	transition: opacity 0.3s ease-in-out;
+	padding: 0 32px;
+	justify-content: center;
 }
+
 footer {
 	text-align: center;
 	padding: 16px;
@@ -304,7 +320,7 @@ footer a {
 	text-decoration: none;
 	color: var(--main-highlight);
 }
-@media screen and (min-width: 700px) {
+@media screen and (min-width: 975px) {
 	header {
 		clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
 	}
