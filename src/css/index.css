@@ -92,6 +92,9 @@ header .btn {
 body {
 	font-family: "nunito", sans-serif;
 }
+.body-overflow {
+	overflow: auto;
+}
 .navbar {
 	color: var(--navbar-fg);
 	display: flex;
@@ -259,7 +262,6 @@ header {
 	height: 100vh;
 	object-fit: cover;
 	object-fit: right center;
-	opacity: 0.6;
 	z-index: 997;
 	user-select: none;
 	transform: translateY(200%);
@@ -272,6 +274,7 @@ header {
 	background-color: #4158d0;
 	background-image: linear-gradient(43deg, #4158d0 0%, #c850c0 46%, #ffcc70 100%);
 }
+
 header figcaption {
 	width: 100%;
 	max-width: 300px;
@@ -289,6 +292,7 @@ header .btn {
 header figure {
 	display: grid;
 	grid-template-columns: repeat(2, 1fr);
+	opacity: 1;
 }
 .navbar-reading {
 	background-color: white;
@@ -307,8 +311,32 @@ header figure {
 	top: 0;
 	margin-top: var(--navbar-height);
 	transition: opacity 0.3s ease-in-out;
-	padding: 0 32px;
+	padding: 0 16px;
 	justify-content: center;
+	color: var(--main-fg);
+	display: flex;
+	gap: 12px;
+	align-items: center;
+	height: 85vh;
+}
+.group-icons {
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+	padding: 20px;
+}
+.group-icons > div {
+	border: var(--border-light);
+	border-radius: var(--border-radius);
+	padding: 16px;
+	text-align: center;
+}
+.group-icons h3 {
+	margin: 12px;
+}
+.group-icons p {
+	width: 70%;
+	margin: auto;
 }
 
 footer {
@@ -330,7 +358,8 @@ footer a {
 	.burger-list {
 		display: none;
 	}
-	.navbar {
+	.navbar,
+	.enterprise-container {
 		padding: 0 60px;
 		align-items: center;
 	}
@@ -345,6 +374,11 @@ footer a {
 	.navbar-list li {
 		width: 100%;
 	}
+	.group-icons {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 32px;
+	}
 }
 .hidden {
 	display: none;
@@ -353,4 +387,9 @@ footer a {
 .opacity-hidden {
 	visibility: hidden;
 	opacity: 0;
+	transition: opacity 0.3s ease-in-out;
+}
+.opacity-visible {
+	opacity: 1;
+	transition: opacity 0.3s ease-in-out;
 }

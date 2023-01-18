@@ -6,7 +6,9 @@ const d = document,
 	$headerImg = d.querySelector(".header-img"),
 	$headerBg = d.querySelector(".header"),
 	$header = d.querySelectorAll(".header *"),
-	$enterprise = d.querySelector(".enterprise-container");
+	$enterprise = d.querySelector(".enterprise-container"),
+	$footer = d.querySelector("footer"),
+	$body = d.querySelector("body");
 
 d.addEventListener("DOMContentLoaded", (e) => {
 	let $navbarClone = $navbar.cloneNode(true);
@@ -30,13 +32,14 @@ d.addEventListener("click", (e) => {
 	}
 	if (e.target.matches(".link-home")) {
 		$burgerList.classList.add("opacity-hidden");
-
 		$navbarList.parentElement.classList.remove("navbar-reading");
 		$headerBg.classList.remove("header-light");
 		$enterprise.classList.add("opacity-hidden");
 		$burgerList.classList.remove("opacity-hidden");
 		$header[0].classList.remove("opacity-hidden");
 		$header[1].classList.remove("opacity-hidden");
+		$header[0].classList.add("opacity-visible");
+		$header[1].classList.add("opacity-visible");
 	}
 	if (e.target.matches(".link-enterprises")) {
 		$navbarList.parentElement.classList.add("navbar-reading");
@@ -45,5 +48,7 @@ d.addEventListener("click", (e) => {
 		$burgerList.classList.add("opacity-hidden");
 		$header[0].classList.add("opacity-hidden");
 		$header[1].classList.add("opacity-hidden");
+		$header[0].classList.remove("opacity-visible");
+		$header[1].classList.remove("opacity-visible");
 	}
 });
