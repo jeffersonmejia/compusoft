@@ -7,7 +7,7 @@
 	--navbar-height: 64px;
 	--navbar-hover: #e0c3fc;
 	--header-bg: black;
-	--modal-bg: rgba(255, 255, 255, 0.5);
+	--modal-bg: hsl(271, 90%, 95%);
 	--modal-content-bg: hsl(271, 90%, 100%);
 	--modal-content-fg: hsl(271, 90%, 70%);
 	--modal-content-hover: hsl(271, 90%, 90%);
