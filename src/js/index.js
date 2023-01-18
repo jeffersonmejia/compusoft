@@ -20,6 +20,7 @@ d.addEventListener("click", (e) => {
 		e.preventDefault();
 	}
 	if (e.target.matches(".btn-back")) {
+		$burgerList.classList.add("opacity-hidden");
 		$contact.classList.add("opacity-hidden");
 	}
 });

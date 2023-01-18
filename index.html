@@ -30,38 +30,41 @@
 		<nav class="navbar" data-dark>
 			<div class="logo">
 				<i class="ti ti-shopping-bag logo-icon"></i>
-				<h2>Mobile tienda</h2>
+				<h2>Mobile store</h2>
 			</div>
 			<ul class="navbar-list"></ul>
 			<span class="material-symbols-outlined dark-mode"> dark_mode </span>
 		</nav>
 		<header>
+			<img src="./src/assets/images/apple-product.png" alt="" />
 			<figure>
-				<img src="./src/assets/images/header.jpg" alt="header" draggable="false" />
 				<figcaption>
-					<h3>Invierte en ti</h3>
-					<small>Atención y productos de calidad</small>
-					<button class="btn" data-dark>Quiero comprar</button>
+					<div class="callout">
+						<h3>Invierte en ti</h3>
+						<small>Atención y productos de calidad</small>
+						<button class="btn" data-dark>Quiero comprar</button>
+					</div>
 				</figcaption>
 			</figure>
 		</header>
 		<span class="material-symbols-outlined burger"> menu </span>
 		<ul class="burger-list opacity-hidden"></ul>
 		<div class="contact-us-container opacity-hidden">
-			<form action="" method="POST">
+			<form action="backend/contact.php" method="post">
 				<fieldset>
 					<legend>
 						<h1>Contáctanos</h1>
 						<small>Dejános tus datos de contacto</small>
 					</legend>
-					<input type="text" placeholder="Nombres completos" />
-					<input type="email" placeholder="Correo electrónico" />
+					<input type="text" placeholder="Nombres completos" name="name" />
+					<input type="email" placeholder="Correo electrónico" name="email" />
 					<textarea
 						cols="30"
 						rows="10"
 						placeholder="Describe brevemente tu mensaje..."
+						name="message"
 					></textarea>
-					<button class="btn">Solicitar información</button>
+					<button class="btn contact-form-btn">Solicitar información</button>
 					<small class="btn-back">Volver</small>
 				</fieldset>
 			</form>

@@ -15,7 +15,7 @@
 	--border-light: 1px solid rgb(220, 220, 220);
 	--input-hover: rgb(245, 245, 245);
 	--height-btn: 48px;
-	--btn-bg: linear-gradient(62deg, #8ec5fc 0%, #e0c3fc 100%);
+	--btn-bg: linear-gradient(62deg, #8ec5fc 0%, #c850c0 100%);
 	--btn-fg: white;
 	--btn-hover: #8ec5fc;
 	--gray-btn-bg: hsl(0, 0%, 90%);
@@ -61,11 +61,12 @@ input {
 	width: 100%;
 	border-radius: var(--border-radius);
 	height: var(--height-btn);
-	background-image: var(--btn-bg);
 	color: var(--btn-fg);
 	cursor: pointer;
 	font-weight: bold;
 	font-size: 16px;
+	background-color: white;
+	color: black;
 }
 .burger {
 	position: fixed;
@@ -199,6 +200,10 @@ body {
 	gap: 16px;
 	border: none;
 }
+.contact-us-container .btn {
+	background-color: black;
+	color: white;
+}
 .contact-us-container .btn-back {
 	width: fit-content;
 	margin: auto;
@@ -207,7 +212,7 @@ body {
 }
 @media (hover: hover) {
 	.contact-us-container .btn-back:hover {
-		color: rgb(48, 60, 255);
+		color: black;
 	}
 }
 .contact-us-container input:nth-child(2) {
@@ -244,13 +249,17 @@ header {
 	height: 100vh;
 	overflow: hidden;
 }
-header img {
+header img:first-child {
 	height: 100vh;
 	object-fit: cover;
 	object-fit: right center;
 	opacity: 0.6;
 	z-index: 997;
 	user-select: none;
+}
+header {
+	background-color: #4158d0;
+	background-image: linear-gradient(43deg, #4158d0 0%, #c850c0 46%, #ffcc70 100%);
 }
 header figcaption {
 	width: 100%;
@@ -265,7 +274,10 @@ header figcaption {
 }
 header .btn {
 	margin: 12px 0;
-	box-shadow: var(--transparent-shadow);
+}
+header figure {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
 }
 footer {
 	text-align: center;
@@ -277,7 +289,13 @@ footer a {
 	color: var(--main-highlight);
 }
 @media screen and (min-width: 700px) {
+	header {
+		clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
+	}
 	.burger {
+		display: none;
+	}
+	.burger-list {
 		display: none;
 	}
 	.navbar {
@@ -285,6 +303,7 @@ footer a {
 		align-items: center;
 	}
 	.logo {
+		color: black;
 		flex-grow: 1;
 	}
 	.navbar-list {
