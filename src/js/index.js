@@ -2,12 +2,14 @@ const d = document,
 	$navbarList = d.querySelector(".navbar ul"),
 	$burgerList = d.querySelector(".burger-list"),
 	$navbar = d.getElementById("navbar-template").content,
-	$contact = d.querySelector(".contact-us-container");
+	$contact = d.querySelector(".contact-us-container"),
+	$headerImg = d.querySelector("header img");
 
 d.addEventListener("DOMContentLoaded", (e) => {
 	let $navbarClone = $navbar.cloneNode(true);
 	$navbarList.appendChild($navbar);
 	$burgerList.appendChild($navbarClone);
+	$headerImg.classList.add("img-translated");
 });
 d.addEventListener("click", (e) => {
 	if (e.target.matches(".burger")) {

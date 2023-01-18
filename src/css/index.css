@@ -186,6 +186,7 @@ body {
 	align-items: center;
 	justify-content: center;
 	color: var(--main-fg);
+	transition: opacity 0.3s ease-in-out;
 }
 .contact-us-container form {
 	width: 80%;
@@ -249,13 +250,18 @@ header {
 	height: 100vh;
 	overflow: hidden;
 }
-header img:first-child {
+.header-img {
 	height: 100vh;
 	object-fit: cover;
 	object-fit: right center;
 	opacity: 0.6;
 	z-index: 997;
 	user-select: none;
+	transform: translateY(200%);
+	transition: transform 0.9s linear;
+}
+.img-translated {
+	transform: translateY(0);
 }
 header {
 	background-color: #4158d0;
