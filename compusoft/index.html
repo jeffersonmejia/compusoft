@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<title>E-commerce: compusoft</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0 maximum-scale=1"/>
+		<link
+			rel="shortcut icon"
+			href="./src/assets/images/shopping-bag.svg"
+			type="image/x-icon"
+		/>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap"
+			rel="stylesheet"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://cdn.jsdelivr.net/npm/@tabler/icons@latest/iconfont/tabler-icons.min.css"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+		/>
+		<link rel="stylesheet" href="./src/css/index.css" />
+	</head>
+	<body>
+		<nav class="navbar" data-dark>
+			<div class="logo">
+				<i class="ti ti-shopping-bag logo-icon"></i>
+				<h2>Mobile store</h2>
+			</div>
+			<ul class="navbar-list"></ul>
+			<span class="material-symbols-outlined dark-mode"> dark_mode </span>
+		</nav>
+		<header class="header">
+			<img src="./src/assets/images/apple-product.png" alt="" class="header-img" />
+			<figure>
+				<figcaption>
+					<div class="callout">
+						<h3>Invierte en ti</h3>
+						<small>Atención y productos de calidad</small>
+						<a href="./index2.html"><button class="btn" data-dark >Quiero comprar</button></a>
+					</div>
+				</figcaption>
+			</figure>
+		</header>
+		<span class="material-symbols-outlined burger"> menu </span>
+		<ul class="burger-list opacity-hidden"></ul>
+		<div class="contact-us-container opacity-hidden">
+			<form action="backend/contact.php" method="post">
+				<fieldset>
+					<legend>
+						<h1>Contáctanos</h1>
+						<small>Dejános tus datos de contacto</small>
+					</legend>
+					<input type="text" placeholder="Nombres completos" name="name" />
+					<input type="email" placeholder="Correo electrónico" name="email" />
+					<textarea
+						cols="30"
+						rows="10"
+						placeholder="Describe brevemente tu mensaje..."
+						name="message"
+					></textarea>
+					<button class="btn contact-form-btn">Solicitar información</button>
+					<small class="btn-back">Volver</small>
+				</fieldset>
+			</form>
+		</div>
+		<div class="enterprise-container opacity-hidden">
+			<div class="enterprise-content">
+				<div class="group-icons">
+					<div>
+						<h3>Descuentos</h3>
+						<span class="material-symbols-outlined"> shopping_cart </span>
+						<p>Obtén descuentos por la compra de dos o más productos</p>
+					</div>
+					<div>
+						<h3>Pagos seguros</h3>
+						<span class="material-symbols-outlined"> payments </span>
+						<p>Tus datos están seguros con nosotros</p>
+					</div>
+					<div>
+						<h3>Difiere tu compra con tres meses de gracia</h3>
+						<span class="material-symbols-outlined"> credit_card </span>
+						<p>Aceptamos pagos de tu tarjeta visa, mastercard e internacional</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="modal-loader">
+			<div class="modal-loader-bar"></div>
+		</div>
+		<template id="navbar-template">
+			<li>
+				<a href="#" class="link-home">Inicio</a>
+			</li>
+			<li>
+				<a href="" class="link-contact">Contáctanos</a>
+			</li>
+			<li><a href="" class="link-enterprises">Para empresas</a></li>
+		</template>
+		<script src="./src/js/index.js"></script>
+	</body>
+</html>
