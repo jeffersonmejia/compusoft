@@ -28,8 +28,8 @@
 		/>
 		<link rel="stylesheet" href="./src/css/index.css" />
 	</head>
-	<body>
-		<nav class="navbar" data-dark>
+	<body data-dark-bg>
+		<nav class="navbar" data-dark-box>
 			<div class="logo">
 				<i class="ti ti-shopping-bag logo-icon"></i>
 				<h2>Mobile store</h2>
@@ -37,7 +37,7 @@
 			<ul class="navbar-list"></ul>
 			<span class="material-symbols-outlined dark-mode"> dark_mode </span>
 		</nav>
-		<header class="header">
+		<header class="header" data-dark-gradient>
 			<img src="./src/assets/images/apple-product.png" alt="" class="header-img" />
 			<figure>
 				<figcaption>
@@ -53,40 +53,48 @@
 		</header>
 		<span class="material-symbols-outlined burger"> menu </span>
 		<ul class="burger-list opacity-hidden"></ul>
-		<div class="contact-us-container opacity-hidden">
+		<div class="contact-us-container opacity-hidden" data-dark-bg>
 			<form action="backend/contact.php" method="post">
 				<fieldset>
 					<legend>
 						<h1>Contáctanos</h1>
 						<small>Dejános tus datos de contacto</small>
 					</legend>
-					<input type="text" placeholder="Nombres completos" name="name" />
-					<input type="email" placeholder="Correo electrónico" name="email" />
+					<input type="text" placeholder="Nombres completos" name="name" data-dark-box />
+					<input
+						type="email"
+						placeholder="Correo electrónico"
+						name="email"
+						data-dark-box
+					/>
 					<textarea
 						cols="30"
 						rows="10"
 						placeholder="Describe brevemente tu mensaje..."
 						name="message"
+						data-dark-box
 					></textarea>
-					<button class="btn contact-form-btn">Solicitar información</button>
-					<small class="btn-back">Volver</small>
+					<button class="btn contact-form-btn" data-dark-box>
+						Solicitar información
+					</button>
+					<small class="btn-back" data-dark-small>Volver</small>
 				</fieldset>
 			</form>
 		</div>
 		<div class="enterprise-container opacity-hidden">
 			<div class="enterprise-content">
 				<div class="group-icons">
-					<div>
+					<div data-dark-box>
 						<h3>Descuentos</h3>
 						<span class="material-symbols-outlined"> shopping_cart </span>
 						<p>Obtén descuentos por la compra de dos o más productos</p>
 					</div>
-					<div>
+					<div data-dark-box>
 						<h3>Pagos seguros</h3>
 						<span class="material-symbols-outlined"> payments </span>
 						<p>Tus datos están seguros con nosotros</p>
 					</div>
-					<div>
+					<div data-dark-box>
 						<h3>Difiere tu compra con tres meses de gracia</h3>
 						<span class="material-symbols-outlined"> credit_card </span>
 						<p>Aceptamos pagos de tu tarjeta visa, mastercard e internacional</p>

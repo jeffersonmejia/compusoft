@@ -31,6 +31,9 @@
 	padding: 0;
 	box-sizing: border-box;
 }
+body {
+	transition: background-color 0.3s ease-in-out;
+}
 img {
 	width: 100%;
 }
@@ -301,6 +304,7 @@ header {
 header {
 	background-color: #4158d0;
 	background-image: linear-gradient(43deg, #4158d0 0%, #c850c0 46%, #ffcc70 100%);
+	transition: background-image 0.3s ease-in-out;
 }
 
 header figcaption {
@@ -420,4 +424,37 @@ footer a {
 .opacity-visible {
 	opacity: 1;
 	transition: opacity 0.3s ease-in-out;
+}
+.dark-gradient {
+	transition: background-image 0.3s ease-in-out;
+	background-image: linear-gradient(43deg, #0021c5 0%, #000000 46%, #0043fc 100%);
+}
+.dark-bg {
+	transition: background-color 0.3s ease-in-out;
+	background-color: black;
+}
+.dark-box {
+	background-color: black;
+	color: white;
+	border: 1px solid rgb(43, 43, 43);
+}
+.group-icons .dark-box {
+	border: 1px solid rgb(43, 43, 43);
+	cursor: pointer;
+}
+@media (hover: hover) {
+	.dark-box:hover:not(nav) {
+		background-color: rgb(17, 17, 17);
+		transition: background-color 0.3s ease-in-out;
+	}
+	.contact-us-container .dark-small:hover {
+		color: white;
+	}
+}
+nav.dark-box {
+	border: none;
+	border-bottom: 1px solid rgb(43, 43, 43);
+}
+.dark-box a {
+	color: white;
 }

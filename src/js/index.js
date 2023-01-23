@@ -9,7 +9,11 @@ const d = document,
 	$enterprise = d.querySelector(".enterprise-container"),
 	$footer = d.querySelector("footer"),
 	$body = d.querySelector("body"),
-	$modalLoader = d.querySelector(".modal-loader");
+	$modalLoader = d.querySelector(".modal-loader"),
+	$darkBG = d.querySelectorAll("[data-dark-bg]"),
+	$darkGradient = d.querySelectorAll("[data-dark-gradient]"),
+	$darkBox = d.querySelectorAll("[data-dark-box]"),
+	$darkSmall = d.querySelectorAll("[data-dark-small]");
 
 d.addEventListener("DOMContentLoaded", (e) => {
 	let $navbarClone = $navbar.cloneNode(true);
@@ -56,5 +60,12 @@ d.addEventListener("click", (e) => {
 		$header[1].classList.add("opacity-hidden");
 		$header[0].classList.remove("opacity-visible");
 		$header[1].classList.remove("opacity-visible");
+	}
+	if (e.target.matches(".dark-mode")) {
+		console.log("hi");
+		$darkBG.forEach((el) => el.classList.toggle("dark-bg"));
+		$darkGradient.forEach((el) => el.classList.toggle("dark-gradient"));
+		$darkBox.forEach((el) => el.classList.toggle("dark-box"));
+		$darkSmall.forEach((el) => el.classList.toggle("dark-small"));
 	}
 });
