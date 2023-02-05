@@ -62,7 +62,6 @@ d.addEventListener("click", (e) => {
 		$header[1].classList.remove("opacity-visible");
 	}
 	if (e.target.matches(".dark-mode")) {
-		console.log("hi");
 		$darkBG.forEach((el) => el.classList.toggle("dark-bg"));
 		$darkGradient.forEach((el) => el.classList.toggle("dark-gradient"));
 		$darkBox.forEach((el) => el.classList.toggle("dark-box"));
