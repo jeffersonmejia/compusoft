@@ -198,6 +198,42 @@ main {
 	position: relative;
 	overflow: hidden;
 }
+
+.modal-loader {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	background-color: rgba(255, 255, 255, 0.5);
+	z-index: 999;
+	opacity: 1;
+	transition: opacity 0.3s ease-in-out;
+}
+.modal-loader-bar {
+	position: fixed;
+	top: 0;
+	bottom: 99.4%;
+	right: 0;
+	left: 0;
+	background-color: rgb(128, 128, 255);
+	animation: loader 0.9s infinite linear;
+}
+@keyframes loader {
+	from {
+		transform: translateX(-200%);
+	}
+	to {
+		transform: translateX(200%);
+	}
+}
+@media (hover: hover) {
+	header .btn:hover,
+	.burger:hover {
+		transform: translateY(-15%);
+	}
+}
+
 @media screen and (min-width: 700px) {
 	.burger {
 		display: none;
@@ -210,7 +246,7 @@ main {
 		flex-grow: 1;
 	}
 	.navbar-list {
-		width: 40%;
+		width: 30%;
 		display: flex;
 	}
 	.navbar-list li {
@@ -250,9 +286,13 @@ main {
 	flex-direction: column;
 	width: 18%;
 }
+.logo a {
+	text-decoration: none;
+	color: black;
+}
 .category_list .category_item {
 	display: block;
-	width: 90%;
+	width: 100%;
 	padding: 15px 0;
 	margin-bottom: 20px;
 	/* background: #bc159b; */
@@ -266,6 +306,7 @@ main {
 	font-weight: 700;
 	color: black;
 	border: 1px solid #c6c6c6;
+	min-width: 200px;
 }
 .category_list .ct_item-active {
 	background: #040404;
@@ -293,13 +334,18 @@ main {
 	/* box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 12px; */
 	border: 1px solid #e1dfdf;
 	background-color: white;
-	transition: background-color 0.3s ease-in-out;
 	cursor: pointer;
 }
 .product-item:hover {
 	background-color: #f1e7fd;
-	color: #8c79a3;
+	color: #ab69fc;
 	border: 1px solid #f1e7fd;
+}
+.product-item p {
+	font-weight: 100;
+	font-size: 0.95rem;
+	padding: 16px 0;
+	padding-bottom: 20px;
 }
 .products-list .product-item img {
 	width: 100%;
@@ -379,4 +425,25 @@ main {
 		width: 100%;
 		margin-left: 0px;
 	}
+}
+footer {
+	text-align: center;
+	padding: 32px 0;
+	color: rgb(80, 79, 79);
+}
+footer small {
+	display: block;
+}
+footer small:first-child {
+	margin-bottom: 2px;
+}
+footer a {
+	text-decoration: none;
+	color: rgb(144, 113, 255);
+}
+footer a:hover {
+	text-decoration: underline;
+}
+.hidden {
+	display: none;
 }
