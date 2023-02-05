@@ -2,6 +2,7 @@ import { checkForm } from "./helpers/validateForm.js";
 
 const d = document,
 	$navbarList = d.querySelector(".navbar ul"),
+	$navbarContent = d.querySelector(".navbar"),
 	$burgerList = d.querySelector(".burger-list"),
 	$navbar = d.getElementById("navbar-template").content,
 	$contact = d.querySelector(".contact-us-container"),
@@ -26,7 +27,11 @@ const d = document,
 	$contactResponse = d.querySelector(".contact-form-response"),
 	$responseText = d.querySelector(".contact-form-response small"),
 	$responseIcon = d.querySelector(".contact-form-response span"),
-	$loader = d.querySelector(".modal-loader");
+	$loader = d.querySelector(".modal-loader"),
+	$homeLink = d.querySelector(".logo a"),
+	$body = d.querySelector("body"),
+	$linkEnterprises = d.querySelector(".link-enterprises");
+
 const dataCollected = {};
 const isValid = {
 	name: false,
@@ -74,7 +79,9 @@ function loadHome(el) {
 	if (!el.matches(".link-home")) return;
 
 	$burgerList.classList.add("opacity-hidden");
+	$burgerList.classList.add("hidden");
 	$navbarList.parentElement.classList.remove("navbar-reading");
+
 	$headerBg.classList.remove("header-light");
 	$enterprise.classList.add("opacity-hidden");
 	$burgerList.classList.remove("opacity-hidden");
@@ -82,6 +89,7 @@ function loadHome(el) {
 	$header[1].classList.remove("opacity-hidden");
 	$header[0].classList.add("opacity-visible");
 	$header[1].classList.add("opacity-visible");
+	if ($body.classList.contains("dark-bg")) $navbarContent.classList.remove("dark-box");
 }
 
 function loadEnterprises(el) {
@@ -94,6 +102,7 @@ function loadEnterprises(el) {
 	$header[1].classList.add("opacity-hidden");
 	$header[0].classList.remove("opacity-visible");
 	$header[1].classList.remove("opacity-visible");
+	if ($body.classList.contains("dark-bg")) $navbarContent.classList.add("dark-box");
 }
 
 function setDarkMode(el) {
@@ -102,6 +111,8 @@ function setDarkMode(el) {
 		$darkGradient.forEach((el) => el.classList.toggle("dark-gradient"));
 		$darkBox.forEach((el) => el.classList.toggle("dark-box"));
 		$darkSmall.forEach((el) => el.classList.toggle("dark-small"));
+		if ($body.classList.contains("dark-bg")) $navbarContent.classList.add("dark-box");
+		else $navbarContent.classList.remove("dark-box");
 	}
 }
 

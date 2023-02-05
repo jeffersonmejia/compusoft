@@ -31,6 +31,16 @@
 	padding: 0;
 	box-sizing: border-box;
 }
+
+@keyframes opacity {
+	from {
+		opacity: 0;
+		transform: translateY(20%);
+	}
+	to {
+		opacity: 1;
+	}
+}
 body {
 	transition: background-color 0.3s ease-in-out;
 }
@@ -88,15 +98,7 @@ textarea {
 .response-unsuccess span {
 	background-color: rgb(225, 188, 188);
 }
-@keyframes opacity {
-	from {
-		opacity: 0;
-		transform: translateY(20%);
-	}
-	to {
-		opacity: 1;
-	}
-}
+
 textarea {
 	resize: none;
 }
@@ -268,12 +270,12 @@ body {
 	align-items: center;
 	justify-content: center;
 	color: var(--main-fg);
-	transition: opacity 0.3s ease-in-out;
 }
 .contact-us-container form {
 	width: 80%;
 	display: flex;
 	justify-content: center;
+	animation: opacity 0.3s ease-in-out;
 }
 .contact-us-container fieldset {
 	width: 100%;
@@ -332,14 +334,18 @@ header {
 	height: 100vh;
 	overflow: hidden;
 }
+.logo a {
+	text-decoration: none;
+	color: white;
+}
 .header-img {
 	height: 100vh;
 	object-fit: cover;
 	object-fit: right center;
 	z-index: 996;
+	opacity: 0.5;
 	user-select: none;
-	transform: translateY(200%);
-	transition: transform 0.9s linear;
+	animation: opacity 0.3s ease-in-out;
 }
 .img-translated {
 	transform: translateY(0);
@@ -349,10 +355,11 @@ header {
 	background-image: linear-gradient(43deg, #4158d0 0%, #c850c0 46%, #ffcc70 100%);
 	transition: background-image 0.3s ease-in-out;
 }
-
+header h3 {
+	font-size: 6rem;
+}
 header figcaption {
 	width: 100%;
-	max-width: 300px;
 	position: absolute;
 	top: 50%;
 	left: 50%;
@@ -363,6 +370,11 @@ header figcaption {
 }
 header .btn {
 	margin: 12px 0;
+	max-width: 300px;
+}
+.callout {
+	display: flex;
+	flex-direction: column;
 }
 header figure {
 	display: grid;
@@ -426,6 +438,10 @@ footer a {
 @media screen and (min-width: 975px) {
 	header {
 		clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
+	}
+	.logo a {
+		text-decoration: none;
+		color: black;
 	}
 	.burger {
 		display: none;
@@ -494,7 +510,7 @@ footer a {
 		color: white;
 	}
 }
-nav.dark-box {
+body nav.dark-box.navbar-reading {
 	border: none;
 	border-bottom: 1px solid rgb(43, 43, 43);
 }
@@ -506,4 +522,11 @@ body .hidden {
 }
 body .visible {
 	display: block;
+}
+.dark-bg a {
+	color: white;
+}
+.dark-bg .navbar-reading {
+	background-color: black;
+	color: white;
 }
