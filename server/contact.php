@@ -3,6 +3,7 @@
 	header("Content-Type: application/json");
 
 	//decodifica json a un array/objeto
+	echo file_get_contents('php://input');
 	$json_data = file_get_contents('php://input');
 	$data = json_decode($json_data, true);
 	$res = array("response","");

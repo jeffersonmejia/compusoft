@@ -34,9 +34,7 @@ const isValid = {
 	message: false,
 };
 
-const host = "localhost",
-	path = "compusoft/server/contact.php",
-	API = `http://localhost/compusoft/server/contact.php`;
+const API = `http://localhost/compusoft/server/contact.php`;
 
 function loadNavbar() {
 	let $navbarClone = $navbar.cloneNode(true);
@@ -121,19 +119,20 @@ function enableBtn(e, { name, email, message }) {
 		collectData();
 	}
 }
+
 async function sendForm() {
 	$loader.classList.remove("opacity-hidden");
 	try {
+		const json = JSON.stringify(dataCollected);
+
 		const header = {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json",
-				body: JSON.stringify(dataCollected),
 			},
+			body: json,
 		};
-
-		const res = await fetch(API, header),
-			json = await res.json();
+		const res = await fetch(API, header);
 
 		if (!res.ok)
 			throw {
@@ -168,9 +167,9 @@ function collectData() {
 	$allTextArea.forEach((el) => (dataCollected[el.name] = el.value));
 }
 
-function OnSubmitClick(el) {
+function OnSubmitClick(el, { name, email, message }) {
 	if (!el.matches(".contact-form-btn")) return;
-	sendForm();
+	if (name && email && message) sendForm();
 }
 
 d.addEventListener("DOMContentLoaded", (e) => loadNavbar());
@@ -184,5 +183,5 @@ d.addEventListener("click", (e) => {
 	loadHome(e.target);
 	loadEnterprises(e.target);
 	disableBtn(e);
-	OnSubmitClick(e.target);
+	OnSubmitClick(e.target, isValid);
 });
