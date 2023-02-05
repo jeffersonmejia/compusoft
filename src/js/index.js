@@ -5,6 +5,7 @@ const d = document,
 	$burgerList = d.querySelector(".burger-list"),
 	$navbar = d.getElementById("navbar-template").content,
 	$contact = d.querySelector(".contact-us-container"),
+	$contactForm = d.querySelector(".contact-us-container form"),
 	$headerImg = d.querySelector(".header-img"),
 	$headerBg = d.querySelector(".header"),
 	$header = d.querySelectorAll(".header *"),
@@ -14,17 +15,27 @@ const d = document,
 	$darkGradient = d.querySelectorAll("[data-dark-gradient]"),
 	$darkBox = d.querySelectorAll("[data-dark-box]"),
 	$darkSmall = d.querySelectorAll("[data-dark-small]"),
+	$submitContact = d.querySelector(".contact-form-btn"),
 	$error = {
 		name: d.querySelector(".error__group__name"),
 		email: d.querySelector(".error__group__email"),
 		message: d.querySelector(".error__group__message"),
-	};
-
+	},
+	$allInputs = d.querySelectorAll(".contact-form input"),
+	$allTextArea = d.querySelectorAll(".contact-form textarea"),
+	$contactResponse = d.querySelector(".contact-form-response"),
+	$responseText = d.querySelector(".contact-form-response small"),
+	$responseIcon = d.querySelector(".contact-form-response span");
+const dataCollected = {};
 const isValid = {
 	name: false,
 	email: false,
 	message: false,
 };
+
+const host = "localhost",
+	path = "compusoft/server/contact.php",
+	API = `http://localhost/compusoft/server/contact.pp`;
 
 function loadNavbar() {
 	let $navbarClone = $navbar.cloneNode(true);
@@ -47,7 +58,6 @@ function showContact(el, contact) {
 function disableNavbarBtn(el, btn) {
 	if (!el.matches(".navbar a") || !el.matches(".burger-list a")) return;
 	btn.preventDefault();
-	console.log("working");
 }
 
 function backToHome(el) {
@@ -70,7 +80,7 @@ function loadHome(el) {
 	$header[1].classList.add("opacity-visible");
 }
 
-function loadEnterprises() {
+function loadEnterprises(el) {
 	if (!el.matches(".link-enterprises")) return;
 	$navbarList.parentElement.classList.add("navbar-reading");
 	$headerBg.classList.add("header-light");
@@ -91,7 +101,65 @@ function setDarkMode(el) {
 	}
 }
 
+function disableBtn(el) {
+	if (!el.target.matches(".contact-form-btn")) return;
+	el.target.classList.remove("hidden");
+	el.preventDefault();
+}
+function enableBtn(e, { name, email, message }) {
+	if (!e.target.matches(`.contact-form fieldset *`)) return;
+	checkForm(e.target, $error, isValid);
+
+	if (name && email && message) {
+		$submitContact.disabled = false;
+		collectData();
+	}
+}
+async function sendForm() {
+	try {
+		const header = {
+			method: "POST",
+			headers: {
+				"Content-Type": "application/json",
+				body: JSON.stringify(dataCollected),
+			},
+		};
+
+		const res = await fetch(API, header),
+			json = await res.json();
+
+		if (!res.ok)
+			throw {
+				status: res.status,
+				statusText: res.statusText,
+			};
+
+		$contactForm.classList.add("hidden");
+		$contactResponse.classList.add("response-success");
+		$contactResponse.classList.remove("hidden");
+		$responseText.textContent = "Formulario envíado con éxito";
+	} catch (error) {
+		$contactForm.classList.add("hidden");
+		$contactResponse.classList.add("response-unsuccess");
+		$contactResponse.classList.remove("hidden");
+		$responseText.textContent = `Error ${error.status || "interno"}: ${
+			error.statusText || "Estamos presentando inconvenientes"
+		}`;
+		$responseIcon.textContent = "cancel";
+	}
+}
+function collectData() {
+	$allInputs.forEach((input) => (dataCollected[input.name] = input.value));
+	$allTextArea.forEach((el) => (dataCollected[el.name] = el.value));
+}
+
+function OnSubmitClick(el) {
+	if (!el.matches(".contact-form-btn")) return;
+	sendForm();
+}
+
 d.addEventListener("DOMContentLoaded", (e) => loadNavbar());
+d.addEventListener("keyup", (e) => enableBtn(e, isValid));
 d.addEventListener("click", (e) => {
 	setDarkMode(e.target);
 	loadMobileNavbar(e.target, $burgerList);
@@ -100,9 +168,6 @@ d.addEventListener("click", (e) => {
 	backToHome(e.target);
 	loadHome(e.target);
 	loadEnterprises(e.target);
-});
-
-d.addEventListener("keyup", (e) => {
-	if (!e.target.matches(".contact-form")) return;
-	checkForm(e.target, $error, isValid);
+	disableBtn(e);
+	OnSubmitClick(e.target);
 });

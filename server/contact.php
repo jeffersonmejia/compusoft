@@ -9,11 +9,11 @@
 
 	//recibe los datos del cliente
 	$name = $data['name'];
-	$lastname = $data['lastname'];
+	$email = $data['email'];
 	$message = $data['message'];
 
 	//Valida que el cliente envie todos los campos llenos
-	if($name === "" || $lastname === ""|| $message=== ""){
+	if($name === "" || $email === ""|| $message=== ""){
 		$res[1] = "Lo sentimos. Todos los campos son obligatorios";
 		echo json_encode($res);
 		return;
@@ -31,7 +31,7 @@
 		echo json_encode($res);
 		return;
 	}
-	$sql = "INSERT INTO contact_list (name, lastname, message) values('$name', '$lastname', '$message');"; 
+	$sql = "INSERT INTO contact_list (name, email, message) values('$name', '$email', '$message');"; 
 
 	if(mysqli_query($conn, $sql)){
 		echo json_encode(array("response"=>true));

@@ -54,7 +54,7 @@
 		<span class="material-symbols-outlined burger"> menu </span>
 		<ul class="burger-list opacity-hidden"></ul>
 		<div class="contact-us-container opacity-hidden" data-dark-bg>
-			<form action="backend/contact.php" method="post" class="contact-form">
+			<form class="contact-form">
 				<fieldset>
 					<legend>
 						<h1>Contáctanos</h1>
@@ -65,30 +65,49 @@
 						placeholder="Nombres completos"
 						name="name"
 						data-dark-box
-						class="error__group__name"
+						autocomplete="off"
 					/>
+					<ul class="error__group error__group__name hidden">
+						<li>Este campo es obligatorio</li>
+						<li>Ingrese un nombre y apellido</li>
+						<li>Al menos debe ingresar 3 caracteres</li>
+					</ul>
 					<input
 						type="email"
 						placeholder="Correo electrónico"
 						name="email"
-						class="error__group__email"
 						data-dark-box
+						autocomplete="off"
 					/>
+					<ul class="error__group error__group__email hidden">
+						<li>Este campo es obligatorio</li>
+						<li>Ingresa un correo válido, ej: someone@gmail.com</li>
+					</ul>
 					<textarea
 						cols="30"
 						rows="10"
 						placeholder="Describe brevemente tu mensaje..."
 						name="message"
-						class="error__group__message"
 						maxlength="256"
+						autocomplete="off"
 						data-dark-box
 					></textarea>
-					<button class="btn contact-form-btn" data-dark-box>
+					<ul class="error__group error__group__message hidden">
+						<li>Este campo es obligatorio</li>
+						<li>Ingresa un correo válido, ej: someone@gmail.com</li>
+					</ul>
+					<button class="btn contact-form-btn" data-dark-box disabled>
 						Solicitar información
 					</button>
 					<small class="btn-back" data-dark-small>Volver</small>
 				</fieldset>
 			</form>
+			<div class="contact-form-response hidden">
+				<small
+					>mensaje
+					<span class="material-symbols-outlined"> check </span>
+				</small>
+			</div>
 		</div>
 		<div class="enterprise-container opacity-hidden">
 			<div class="enterprise-content">
