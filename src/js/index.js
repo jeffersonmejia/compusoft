@@ -25,7 +25,8 @@ const d = document,
 	$allTextArea = d.querySelectorAll(".contact-form textarea"),
 	$contactResponse = d.querySelector(".contact-form-response"),
 	$responseText = d.querySelector(".contact-form-response small"),
-	$responseIcon = d.querySelector(".contact-form-response span");
+	$responseIcon = d.querySelector(".contact-form-response span"),
+	$loader = d.querySelector(".modal-loader");
 const dataCollected = {};
 const isValid = {
 	name: false,
@@ -35,7 +36,7 @@ const isValid = {
 
 const host = "localhost",
 	path = "compusoft/server/contact.php",
-	API = `http://localhost/compusoft/server/contact.pp`;
+	API = `http://localhost/compusoft/server/contact.php`;
 
 function loadNavbar() {
 	let $navbarClone = $navbar.cloneNode(true);
@@ -52,7 +53,12 @@ function loadMobileNavbar(el, burger) {
 }
 
 function showContact(el, contact) {
-	if (el.matches(".link-contact")) contact.classList.remove("opacity-hidden");
+	if (!el.matches(".link-contact")) return;
+	contact.classList.remove("opacity-hidden");
+	contact.classList.remove("hidden");
+	$contact.classList.remove("hidden");
+	$contactForm.classList.remove("hidden");
+	$contactResponse.classList.add("hidden");
 }
 
 function disableNavbarBtn(el, btn) {
@@ -116,6 +122,7 @@ function enableBtn(e, { name, email, message }) {
 	}
 }
 async function sendForm() {
+	$loader.classList.remove("opacity-hidden");
 	try {
 		const header = {
 			method: "POST",
@@ -138,6 +145,10 @@ async function sendForm() {
 		$contactResponse.classList.add("response-success");
 		$contactResponse.classList.remove("hidden");
 		$responseText.textContent = "Formulario envíado con éxito";
+		setTimeout(() => {
+			$contact.classList.add("hidden");
+			$loader.classList.add("opacity-hidden");
+		}, 1800);
 	} catch (error) {
 		$contactForm.classList.add("hidden");
 		$contactResponse.classList.add("response-unsuccess");
@@ -146,6 +157,10 @@ async function sendForm() {
 			error.statusText || "Estamos presentando inconvenientes"
 		}`;
 		$responseIcon.textContent = "cancel";
+		setTimeout(() => {
+			$contact.classList.add("hidden");
+			$loader.classList.add("opacity-hidden");
+		}, 1800);
 	}
 }
 function collectData() {

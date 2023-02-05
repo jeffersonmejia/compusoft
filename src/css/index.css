@@ -63,7 +63,6 @@ textarea {
 	animation: opacity 0.3s ease-in-out;
 }
 .contact-form-response {
-	width: 50%;
 	text-align: center;
 	display: flex;
 	align-items: center;
