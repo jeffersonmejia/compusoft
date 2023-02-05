@@ -30,7 +30,7 @@
 	</head>
 	<body data-dark-bg>
 		<nav class="navbar" data-dark-box>
-			<div class="logo">
+			<div class="logo link-home">
 				<i class="ti ti-shopping-bag logo-icon"></i>
 				<h2>Mobile store</h2>
 			</div>
@@ -54,17 +54,24 @@
 		<span class="material-symbols-outlined burger"> menu </span>
 		<ul class="burger-list opacity-hidden"></ul>
 		<div class="contact-us-container opacity-hidden" data-dark-bg>
-			<form action="backend/contact.php" method="post">
+			<form action="backend/contact.php" method="post" class="contact-form">
 				<fieldset>
 					<legend>
 						<h1>Contáctanos</h1>
 						<small>Dejános tus datos de contacto</small>
 					</legend>
-					<input type="text" placeholder="Nombres completos" name="name" data-dark-box />
+					<input
+						type="text"
+						placeholder="Nombres completos"
+						name="name"
+						data-dark-box
+						class="error__group__name"
+					/>
 					<input
 						type="email"
 						placeholder="Correo electrónico"
 						name="email"
+						class="error__group__email"
 						data-dark-box
 					/>
 					<textarea
@@ -72,6 +79,8 @@
 						rows="10"
 						placeholder="Describe brevemente tu mensaje..."
 						name="message"
+						class="error__group__message"
+						maxlength="256"
 						data-dark-box
 					></textarea>
 					<button class="btn contact-form-btn" data-dark-box>
@@ -107,13 +116,12 @@
 		</div>
 		<template id="navbar-template">
 			<li>
-				<a href="#" class="link-home">Inicio</a>
+				<small class="link-contact">Contáctanos</small>
 			</li>
 			<li>
-				<a href="" class="link-contact">Contáctanos</a>
+				<small class="link-enterprises">Para empresas</small>
 			</li>
-			<li><a href="" class="link-enterprises">Para empresas</a></li>
 		</template>
-		<script src="./src/js/index.js"></script>
+		<script src="./src/js/index.js" type="module"></script>
 	</body>
 </html>

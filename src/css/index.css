@@ -153,7 +153,7 @@ body {
 .navbar-list li:last-child {
 	margin-right: 20px;
 }
-.navbar-list a {
+.navbar-list small {
 	width: auto;
 	text-decoration: none;
 	color: var(--navbar-fg);
@@ -165,7 +165,7 @@ body {
 	justify-content: center;
 }
 @media (hover: hover) {
-	.navbar-list a:hover {
+	.navbar-list small:hover {
 		text-decoration: underline;
 	}
 }
@@ -193,7 +193,7 @@ body {
 	cursor: pointer;
 }
 @media (hover: hover) {
-	.burger-list li a:hover {
+	.burger-list li small:hover {
 		background-color: var(--modal-content-hover);
 		border: none;
 		width: 100%;
@@ -203,7 +203,7 @@ body {
 .burger-list li:not(:last-child) {
 	border-bottom: 1px solid hsl(271, 90%, 90%);
 }
-.burger-list a {
+.burger-list small {
 	display: flex;
 	flex-direction: column;
 	padding: 12px;
