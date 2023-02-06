@@ -448,3 +448,29 @@ footer a:hover {
 .hidden {
 	display: none;
 }
+.dark-bg {
+	background-color: rgb(20, 20, 20);
+	border: none;
+}
+.dark-bg .logo :is(a, i) {
+	color: white;
+}
+.dark-bg .dark-mode:hover {
+	background-color: rgb(32, 32, 32);
+}
+.dark-bg .wrap h1 {
+	color: white;
+}
+.dark-bg .category_item {
+	background-color: rgb(40, 40, 40);
+	border: 1px solid rgb(60, 60, 60);
+	color: rgb(160, 160, 160);
+}
+.dark-bg .product-item {
+	border: 1px solid rgb(60, 60, 60);
+	background-color: rgb(40, 40, 40);
+	color: rgb(160, 160, 160);
+}
+.dark-bg .product-item:hover {
+	background-color: rgb(48, 48, 48);
+}

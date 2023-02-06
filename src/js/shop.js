@@ -30,9 +30,15 @@ $(document).ready(function () {
 });
 
 const d = document,
-	$modalLoader = d.querySelector(".modal-loader");
+	$modalLoader = d.querySelector(".modal-loader"),
+	$dataBG = d.querySelectorAll("[data-dark-bg]");
 
 function stopLoader() {
 	setTimeout(() => $modalLoader.classList.add("hidden"), 1000);
 }
 d.addEventListener("DOMContentLoaded", (e) => stopLoader());
+d.addEventListener("click", (e) => {
+	if (e.target.matches(".dark-mode")) {
+		$dataBG.forEach((el) => el.classList.toggle("dark-bg"));
+	}
+});
